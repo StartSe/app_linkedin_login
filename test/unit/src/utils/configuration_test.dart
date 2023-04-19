@@ -26,7 +26,7 @@ void main() {
 
       expect(
         config.initialUrl,
-        'https://www.linkedin.com/oauth/v2/authorization?response_type=code&client_id=clientIdParam&state=urlState&redirect_uri=https://www.app.dexter.com&scope=r_liteprofile%20r_emailaddress',
+        'https://www.linkedin.com/oauth/v2/authorization?response_type=code&client_id=clientIdParam&state=urlState&redirect_uri=https://www.app.dexter.com&scope=r_basicprofile%20r_emailaddress',
       );
     });
 
@@ -116,7 +116,7 @@ void main() {
 
       expect(
         config.initialUrl,
-        'https://www.linkedin.com/oauth/v2/authorization?response_type=code&client_id=clientIdParam&state=urlState&redirect_uri=https://www.app.dexter.com&scope=r_liteprofile%20r_emailaddress',
+        'https://www.linkedin.com/oauth/v2/authorization?response_type=code&client_id=clientIdParam&state=urlState&redirect_uri=https://www.app.dexter.com&scope=r_basicprofile%20r_emailaddress',
       );
     });
 
