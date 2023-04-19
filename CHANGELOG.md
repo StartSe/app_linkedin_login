@@ -4,37 +4,6 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## 2.2.2-beta.1
-### Update dependencies
-
-- Upgrade web controller to v4 from v3
-- Editable background color for `LinkedInButtonStandardWidget`, Thanks to, [mdbollman](https://github.com/mdbollman)
-
-## 2.2.1
-### Update dependencies
-
--   Update project dependencies to the last once
-
-## 2.2.0
-### New linter
-
--   Move lint from [analyzer](https://pub.dev/packages/analyzer) to the [flutter_lints](https://pub.dev/packages/flutter_lints)
--   Enforce recommend lint rules
-
-## 2.1.0
-### Happy new year
-
--   Change platform mode to use `Hybrid Composition` by default [docs](https://pub.dev/packages/webview_flutter)
--   Add possibility to use `Virtual displays`
--   Update dependencies    
--   Cleaning a code
-
-## 2.0.1
-### Library refactor
-
--   Min SDK version is set to 19
--   Dart 2.13.3 - last stable
-
 ## 2.0.0
 ### Library refactor
 
