@@ -60,7 +60,7 @@ class ClientFetcher {
         client: graph.httpClient,
       );
 
-      log('LinkedInAuth-steps: Fetching full profile... DONE');
+      log('LinkedInAuth-steps: Fetching full profile... DONE, $user');
 
       return user;
       // ignore: avoid_catches_without_on_clauses

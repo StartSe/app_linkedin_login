@@ -1,6 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:linkedin_login/src/wrappers/linked_in_token_object.dart';
 
+import '../utils/logger.dart';
+
 /// Class which has responsibility to keep all users information on one place
 /// Note: You will not get an profile URL with this model. The library is still
 /// not supporting this, but as work around you should call this API
@@ -19,6 +21,7 @@ class LinkedInUserModel {
     this.userId,
     this.localizedFirstName,
     this.localizedLastName,
+    this.vanityName,
   });
 
   /// Convert response from API to [LinkedInUserModel] object
@@ -29,6 +32,7 @@ class LinkedInUserModel {
     final localizedFirstName = json['localizedFirstName'];
     final localizedLastName = json['localizedLastName'];
     final userId = json['id'];
+    final vanityName = json['vanityName'];
 
     return LinkedInUserModel(
       firstName:
@@ -41,6 +45,7 @@ class LinkedInUserModel {
       userId: userId,
       localizedFirstName: localizedFirstName,
       localizedLastName: localizedLastName,
+      vanityName: vanityName,
     );
   }
 
@@ -50,6 +55,7 @@ class LinkedInUserModel {
   final String? userId;
   final String? localizedFirstName;
   final String? localizedLastName;
+  final String? vanityName;
   LinkedInProfileEmail? email;
   late LinkedInTokenObject token;
 
@@ -58,7 +64,8 @@ class LinkedInUserModel {
     return 'LinkedInUserModel{firstName: $firstName, lastName: $lastName, '
         'profilePicture: $profilePicture, userId: $userId, '
         'localizedFirstName: $localizedFirstName, '
-        'localizedLastName: $localizedLastName, email: $email, token: $token}';
+        'localizedLastName: $localizedLastName, email: $email, token: $token, '
+        'vanityName: $vanityName}';
   }
 }
 
