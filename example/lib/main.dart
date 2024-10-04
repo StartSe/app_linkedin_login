@@ -13,7 +13,7 @@ const String clientId = '776rnw4e4izlvg';
 const String clientSecret = 'rQEgboUHMLcQi59v';
 
 class MyApp extends StatelessWidget {
-  const MyApp({final Key key}) : super(key: key);
+  const MyApp({final Key? key}) : super(key: key);
 
   // This widget is the root of your application.
   @override
@@ -33,7 +33,7 @@ class MyApp extends StatelessWidget {
                   icon: Icon(Icons.person),
                   text: 'Profile',
                 ),
-                Tab(icon: Icon(Icons.text_fields), text: 'Auth code')
+                Tab(icon: Icon(Icons.text_fields), text: 'Auth code'),
               ],
             ),
             title: const Text('LinkedIn Authorization'),
@@ -51,7 +51,7 @@ class MyApp extends StatelessWidget {
 }
 
 class LinkedInProfileExamplePage extends StatefulWidget {
-  const LinkedInProfileExamplePage({final Key key}) : super(key: key);
+  const LinkedInProfileExamplePage({final Key? key}) : super(key: key);
 
   @override
   State createState() => _LinkedInProfileExamplePageState();
@@ -59,7 +59,7 @@ class LinkedInProfileExamplePage extends StatefulWidget {
 
 class _LinkedInProfileExamplePageState
     extends State<LinkedInProfileExamplePage> {
-  UserObject user;
+  UserObject? user;
   bool logoutUser = false;
 
   @override
@@ -102,18 +102,20 @@ class _LinkedInProfileExamplePageState
 
                       user = UserObject(
                         firstName:
-                            linkedInUser?.user?.firstName?.localized?.label,
+                            linkedInUser.user.firstName?.localized?.label ?? '',
                         lastName:
-                            linkedInUser?.user?.lastName?.localized?.label,
-                        email: linkedInUser?.user?.email?.elements[0]
-                            ?.handleDeep?.emailAddress,
+                            linkedInUser.user.lastName?.localized?.label ?? '',
+                        email: linkedInUser.user.email?.elements?[0].handleDeep
+                                ?.emailAddress ??
+                            '',
                         profileImageUrl: linkedInUser
-                            ?.user
-                            ?.profilePicture
-                            ?.displayImageContent
-                            ?.elements[0]
-                            ?.identifiers[0]
-                            ?.identifier,
+                                .user
+                                .profilePicture
+                                ?.displayImageContent
+                                ?.elements?[0]
+                                .identifiers?[0]
+                                .identifier ??
+                            '',
                       );
 
                       setState(() {
@@ -153,7 +155,7 @@ class _LinkedInProfileExamplePageState
 }
 
 class LinkedInAuthCodeExamplePage extends StatefulWidget {
-  const LinkedInAuthCodeExamplePage({final Key key}) : super(key: key);
+  const LinkedInAuthCodeExamplePage({final Key? key}) : super(key: key);
 
   @override
   State createState() => _LinkedInAuthCodeExamplePageState();
@@ -161,7 +163,7 @@ class LinkedInAuthCodeExamplePage extends StatefulWidget {
 
 class _LinkedInAuthCodeExamplePageState
     extends State<LinkedInAuthCodeExamplePage> {
-  AuthCodeObject authorizationCode;
+  AuthCodeObject? authorizationCode;
   bool logoutUser = false;
 
   @override
@@ -188,8 +190,8 @@ class _LinkedInAuthCodeExamplePageState
                     print('State: ${response.codeResponse.state}');
 
                     authorizationCode = AuthCodeObject(
-                      code: response.codeResponse.code,
-                      state: response.codeResponse.state,
+                      code: response.codeResponse.code ?? '',
+                      state: response.codeResponse.state ?? '',
                     );
                     setState(() {});
 
@@ -226,7 +228,7 @@ class _LinkedInAuthCodeExamplePageState
 }
 
 class AuthCodeObject {
-  AuthCodeObject({this.code, this.state});
+  AuthCodeObject({required this.code, required this.state});
 
   final String code;
   final String state;
@@ -234,10 +236,10 @@ class AuthCodeObject {
 
 class UserObject {
   UserObject({
-    this.firstName,
-    this.lastName,
-    this.email,
-    this.profileImageUrl,
+    required this.firstName,
+    required this.lastName,
+    required this.email,
+    required this.profileImageUrl,
   });
 
   final String firstName;
