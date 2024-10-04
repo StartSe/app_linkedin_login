@@ -15,7 +15,7 @@ dependencies:
   http: ^0.13.4
   meta: ^1.7.0
   rxdart: ^0.27.3
-  uuid: ^3.0.6
+  uuid: ^4.0.0
   webview_flutter: ^4.0.1
   webview_flutter_android: ^3.0.0
   webview_flutter_wkwebview: ^3.0.0
